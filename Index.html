@@ -11,8 +11,14 @@
             let choice = ["rock", "paper", "scissors"]
             return choice[(Math.floor(Math.random() * choice.length))]
         }
+        //Create a function that lets the user pick their choice
+        function getHumanChoice () {
+            let choice = prompt("Please choose Rock, Paper, or Scissors")
+            return choice
+        }
 
         console.log(getComputerChoice())
+        console.log(getHumanChoice())
     </script>
 </body>
 </html>
