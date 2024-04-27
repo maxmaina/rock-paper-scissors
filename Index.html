@@ -5,6 +5,14 @@
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    
+    <script>
+        //Create a function that lets give the computer a random choice
+        function getComputerChoice () {
+            let choice = ["rock", "paper", "scissors"]
+            return choice[(Math.floor(Math.random() * choice.length))]
+        }
+
+        console.log(getComputerChoice())
+    </script>
 </body>
 </html>
