@@ -6,34 +6,38 @@
 </head>
 <body>
     <script>
-        //Create a function that lets give the computer a random choice
-        function getComputerChoice () {
-            let choice = ["rock", "paper", "scissors"]
-            return choice[(Math.floor(Math.random() * choice.length))]
-        }
-        //Create a function that lets the user pick their choice
-        function getHumanChoice () {
-            let choice = prompt("Please choose Rock, Paper, or Scissors")
-            return choice
-        }
+        //Create a functition that plays the game 
+        function playGame () {
+            //Create a function that lets give the computer a random choice
+            function getComputerChoice () {
+                let choice = ["rock", "paper", "scissors"]
+                return choice[(Math.floor(Math.random() * choice.length))]
+            }
+            //Create a function that lets the user pick their choice
+            function getHumanChoice () {
+                let choice = prompt("Please choose Rock, Paper, or Scissors")
+                return choice
+            }
 
-        //Create two new variables for human and computer choice functions
-        let humanSelection = getHumanChoice()
-        let computerSelection= getComputerChoice()
+            //Create two new variables for human and computer choice functions
+            let humanSelection = getHumanChoice()
+            let computerSelection= getComputerChoice()
 
-        //Create a function that plays a round of the game
-        function playRound(human, computer){
-            if (humanSelection == "rock" && computerSelection == "scissors" || humanSelection == "paper" && computerSelection == "rock" || humanSelection == "scissors" && computerSelection == "paper") {
-                console.log("You Win! " + humanSelection + " beats " + computerSelection)
+            //Create a function that plays a round of the game
+            function playRound(human, computer) {
+                if (humanSelection == "rock" && computerSelection == "scissors" || humanSelection == "paper" && computerSelection == "rock" || humanSelection == "scissors" && computerSelection == "paper") {
+                    console.log("You Win! " + humanSelection + " beats " + computerSelection)
+                }
+                else if (computerSelection == "rock" && humanSelection == "scissors" || computerSelection == "paper" && humanSelection == "rock" || computerSelection == "scissors" && humanSelection == "paper") {
+                    console.log("You Lose! " + computerSelection + " beats " + humanSelection)
+                }
+                else if (humanSelection == computerSelection) {
+                    console.log("It's a Draw.")
+                }
             }
-            else if (computerSelection == "rock" && humanSelection == "scissors" || computerSelection == "paper" && humanSelection == "rock" || computerSelection == "scissors" && humanSelection == "paper") {
-                console.log("You Lose! " + computerSelection + " beats " + humanSelection)
-            }
-            else if (humanSelection == computerSelection) {
-                console.log("It's a Draw.")
-            }
+            console.log(playRound(humanSelection, computerSelection))
         }
-        console.log(playRound(humanSelection, computerSelection))
+        console.log(playGame())
     </script>
 </body>
 </html>
