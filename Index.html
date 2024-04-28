@@ -25,7 +25,7 @@
                 }
 
                 //Create two new variables for human and computer choice functions
-                let humanSelection = getHumanChoice()
+                let humanSelection = getHumanChoice().toLowerCase()
                 let computerSelection= getComputerChoice()
 
                 //Create a function that plays a round of the game
@@ -41,9 +41,21 @@
                     else if (humanSelection == computerSelection) {
                         console.log("It's a Draw.")
                     }
+                    console.log("Your Score: " + humanScore)
+                    console.log("Computer Score: " + computerScore)
                 }
                 console.log(playRound(humanSelection, computerSelection))
             }
+            //Create conditional statement that gives the player the final results of the game
+            if (humanScore > computerScore) {
+                    console.log("Your overall score was higher. You Win!")
+                }
+                else if (computerScore > humanScore) {
+                    console.log("The computer had the higher overall score. You Lose.")
+                }
+                else if (humanScore == computerScore) {
+                    console.log("It's a Draw.")
+                }
         }
         console.log(playGame())
     </script>
