@@ -21,8 +21,19 @@
         let humanSelection = getHumanChoice()
         let computerSelection= getComputerChoice()
 
-        console.log(getComputerChoice())
-        console.log(getHumanChoice())
+        //Create a function that plays a round of the game
+        function playRound(human, computer){
+            if (humanSelection == "rock" && computerSelection == "scissors" || humanSelection == "paper" && computerSelection == "rock" || humanSelection == "scissors" && computerSelection == "paper") {
+                console.log("You Win! " + humanSelection + " beats " + computerSelection)
+            }
+            else if (computerSelection == "rock" && humanSelection == "scissors" || computerSelection == "paper" && humanSelection == "rock" || computerSelection == "scissors" && humanSelection == "paper") {
+                console.log("You Lose! " + computerSelection + " beats " + humanSelection)
+            }
+            else if (humanSelection == computerSelection) {
+                console.log("It's a Draw.")
+            }
+        }
+        console.log(playRound(humanSelection, computerSelection))
     </script>
 </body>
 </html>
