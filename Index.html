@@ -11,8 +11,6 @@
         let computerScore = 0
         //Create a functition that plays the game 
         function playGame () {
-            //Create a loop that alows the player to play 5 rounds
-            for (round = 0; round < 5; round ++) {
                 //Create a function that lets give the computer a random choice
                 function getComputerChoice () {
                     let choice = ["rock", "paper", "scissors"]
@@ -43,19 +41,19 @@
                     }
                     console.log("Your Score: " + humanScore)
                     console.log("Computer Score: " + computerScore)
+
+                    //Create conditional statement that gives the player the final results of the game
+                    if (humanScore > computerScore) {
+                        console.log("Your overall score was higher. You Win!")
+                    }
+                    else if (computerScore > humanScore) {
+                        console.log("The computer had the higher overall score. You Lose.")
+                    }
+                    else if (humanScore == computerScore) {
+                        console.log("It's a Draw.")
+                    }
                 }
                 console.log(playRound(humanSelection, computerSelection))
-            }
-            //Create conditional statement that gives the player the final results of the game
-            if (humanScore > computerScore) {
-                    console.log("Your overall score was higher. You Win!")
-                }
-                else if (computerScore > humanScore) {
-                    console.log("The computer had the higher overall score. You Lose.")
-                }
-                else if (humanScore == computerScore) {
-                    console.log("It's a Draw.")
-                }
         }
         console.log(playGame())
     </script>
