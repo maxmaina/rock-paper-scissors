@@ -6,70 +6,68 @@
 </head>
 <body>
     <div class="container">
-        <button class="rock">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
+        <button class="rock" value="rock">Rock</button>
+        <button class="paper" value="paper">Paper</button>
+        <button class="scissors" value="scissors">Scissors</button>
     </div>
     <script>
-
-        //Variable that allow access to rock, paper, scissors buttons
-        let rock = document.querySelector(".rock")
-        let paper = document.querySelector(".paper")
-        let scissors = document.querySelector(".scissors")
-
-        //Event listeners that let the user choose their selection by clicking the button
-        rock.addEventListener("click", () => {
-            let computerSelection = getComputerChoice()
-            let humanSelection = "rock"
-        })
-        paper.addEventListener("click", () => {
-            let computerSelection = getComputerChoice()
-            let humanSelection = "paper"
-        })
-        scissors.addEventListener("click", () => {
-            let computerSelection = getComputerChoice()
-            let humanSelection = "scissors"
-        })
-
         //Create variables for the human and computer scores 
         let humanScore = 0
         let computerScore = 0
         //Create a functition that plays the game 
         function playGame () {
-                //Create a function that lets give the computer a random choice
-                function getComputerChoice () {
-                    let choice = ["rock", "paper", "scissors"]
-                    return choice[(Math.floor(Math.random() * choice.length))]
-                }
-                //Create a function that plays a round of the game
-                function playRound(human, computer) {
-                    if (humanSelection == "rock" && computerSelection == "scissors" || humanSelection == "paper" && computerSelection == "rock" || humanSelection == "scissors" && computerSelection == "paper") {
-                        console.log("You Win! " + humanSelection + " beats " + computerSelection)
-                        humanScore ++
-                    }
-                    else if (computerSelection == "rock" && humanSelection == "scissors" || computerSelection == "paper" && humanSelection == "rock" || computerSelection == "scissors" && humanSelection == "paper") {
-                        console.log("You Lose! " + computerSelection + " beats " + humanSelection)
-                        computerScore ++
-                    }
-                    else if (humanSelection == computerSelection) {
-                        console.log("It's a Draw.")
-                    }
-                    console.log("Your Score: " + humanScore)
-                    console.log("Computer Score: " + computerScore)
-                }
-                console.log(playRound(humanSelection, computerSelection))
+            //Variable that allow access to rock, paper, scissors buttons
+            let rock = document.querySelector(".rock")
+            let paper = document.querySelector(".paper")
+            let scissors = document.querySelector(".scissors")
+
+            //Event listeners that let the user choose their selection by clicking the button
+            rock.addEventListener("click", () => {
+                let computerSelection = getComputerChoice()
+                let humanSelection = rock.value
+            })
+            paper.addEventListener("click", () => {
+                let computerSelection = getComputerChoice()
+                let humanSelection = paper.value
+            })
+            scissors.addEventListener("click", () => {
+                let computerSelection = getComputerChoice()
+                let humanSelection = scissors.value
+            }) 
+         
+            //Create a function that lets give the computer a random choice
+            function getComputerChoice () {
+                let choice = ["rock", "paper", "scissors"]
+                return choice[(Math.floor(Math.random() * choice.length))]
             }
-            //Create conditional statement that gives the player the final results of the game
-            if (humanScore > computerScore) {
-                    console.log("Your overall score was higher. You Win!")
+            //Create a function that plays a round of the game
+            function playRound(humanSelection, computerSelection) {
+                if (humanSelection == "rock" && computerSelection == "scissors" || humanSelection == "paper" && computerSelection == "rock" || humanSelection == "scissors" && computerSelection == "paper") {
+                    console.log("You Win! " + humanSelection + " beats " + computerSelection)
+                    humanScore ++
                 }
-                else if (computerScore > humanScore) {
-                    console.log("The computer had the higher overall score. You Lose.")
+                else if (computerSelection == "rock" && humanSelection == "scissors" || computerSelection == "paper" && humanSelection == "rock" || computerSelection == "scissors" && humanSelection == "paper") {
+                    console.log("You Lose! " + computerSelection + " beats " + humanSelection)
+                    computerScore ++
                 }
-                else if (humanScore == computerScore) {
+                else if (humanSelection == computerSelection) {
                     console.log("It's a Draw.")
                 }
-        console.log(playGame())
+                console.log("Your Score: " + humanScore)
+                console.log("Computer Score: " + computerScore)
+            }
+        }
+        //Create conditional statement that gives the player the final results of the game
+        if (humanScore > computerScore) {
+                console.log("Your overall score was higher. You Win!")
+            }
+            else if (computerScore > humanScore) {
+                console.log("The computer had the higher overall score. You Lose.")
+            }
+            else if (humanScore == computerScore) {
+                console.log("It's a Draw.")
+            }
+        playGame()
     </script>
 </body>
 </html>
