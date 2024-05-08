@@ -11,6 +11,26 @@
         <button class="scissors">Scissors</button>
     </div>
     <script>
+
+        //Variable that allow access to rock, paper, scissors buttons
+        let rock = document.querySelector(".rock")
+        let paper = document.querySelector(".paper")
+        let scissors = document.querySelector(".scissors")
+
+        //Event listeners that let the user choose their selection by clicking the button
+        rock.addEventListener("click", () => {
+            let computerSelection = getComputerChoice()
+            let humanSelection = "rock"
+        })
+        paper.addEventListener("click", () => {
+            let computerSelection = getComputerChoice()
+            let humanSelection = "paper"
+        })
+        scissors.addEventListener("click", () => {
+            let computerSelection = getComputerChoice()
+            let humanSelection = "scissors"
+        })
+
         //Create variables for the human and computer scores 
         let humanScore = 0
         let computerScore = 0
