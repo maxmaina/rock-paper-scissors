@@ -10,6 +10,12 @@
         <button class="paper" value="paper">Paper</button>
         <button class="scissors" value="scissors">Scissors</button>
     </div>
+
+    <div class="display-container">
+        <h1 class="display"></h1>
+        <h2 class="outcome"></h2>
+    </div>
+
     <script>
         //Create variables for the human and computer scores 
         let humanScore = 0
@@ -20,19 +26,27 @@
             let rock = document.querySelector(".rock")
             let paper = document.querySelector(".paper")
             let scissors = document.querySelector(".scissors")
+            let display = document.querySelector(".display")
+            let outcome = document.querySelector(".outcome")
 
             //Event listeners that let the user choose their selection by clicking the button
             rock.addEventListener("click", () => {
                 let computerSelection = getComputerChoice()
                 let humanSelection = rock.value
+                console.log(playRound(humanSelection, computerSelection))
+                display.innerText = ("Your Score: " + humanScore + " || " + " Computer Score: " + computerScore)
             })
             paper.addEventListener("click", () => {
                 let computerSelection = getComputerChoice()
                 let humanSelection = paper.value
+                console.log(playRound(humanSelection, computerSelection))
+                display.innerText = ("Your Score: " + humanScore + " || " + " Computer Score: " + computerScore)
             })
             scissors.addEventListener("click", () => {
                 let computerSelection = getComputerChoice()
                 let humanSelection = scissors.value
+                console.log(playRound(humanSelection, computerSelection))
+                display.innerText = ("Your Score: " + humanScore + " || " + " Computer Score: " + computerScore)
             }) 
          
             //Create a function that lets give the computer a random choice
@@ -43,18 +57,16 @@
             //Create a function that plays a round of the game
             function playRound(humanSelection, computerSelection) {
                 if (humanSelection == "rock" && computerSelection == "scissors" || humanSelection == "paper" && computerSelection == "rock" || humanSelection == "scissors" && computerSelection == "paper") {
-                    console.log("You Win! " + humanSelection + " beats " + computerSelection)
+                    outcome.innerText = ("You Win! " + humanSelection + " beats " + computerSelection)
                     humanScore ++
                 }
                 else if (computerSelection == "rock" && humanSelection == "scissors" || computerSelection == "paper" && humanSelection == "rock" || computerSelection == "scissors" && humanSelection == "paper") {
-                    console.log("You Lose! " + computerSelection + " beats " + humanSelection)
+                    outcome.innerText = ("You Lose! " + computerSelection + " beats " + humanSelection)
                     computerScore ++
                 }
                 else if (humanSelection == computerSelection) {
-                    console.log("It's a Draw.")
+                    outcome.innerText = ("It's a Draw.")
                 }
-                console.log("Your Score: " + humanScore)
-                console.log("Computer Score: " + computerScore)
             }
         }
         //Create conditional statement that gives the player the final results of the game
