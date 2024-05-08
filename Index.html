@@ -12,22 +12,36 @@
     </div>
 
     <div class="display-container">
-        <h1 class="display"></h1>
-        <h2 class="outcome"></h2>
+        <h1 class="outcome"></h1>
+        <h2 class="display"></h2>
     </div>
 
     <script>
         //Create variables for the human and computer scores 
         let humanScore = 0
         let computerScore = 0
+
+        //Variable that allow access to rock, paper, scissors buttons
+        let rock = document.querySelector(".rock")
+        let paper = document.querySelector(".paper")
+        let scissors = document.querySelector(".scissors")
+        let display = document.querySelector(".display")
+        let outcome = document.querySelector(".outcome")
         //Create a functition that plays the game 
         function playGame () {
-            //Variable that allow access to rock, paper, scissors buttons
-            let rock = document.querySelector(".rock")
-            let paper = document.querySelector(".paper")
-            let scissors = document.querySelector(".scissors")
-            let display = document.querySelector(".display")
-            let outcome = document.querySelector(".outcome")
+            //A function that gives us the winner of the game 
+            function winnerOfGame (humanScore, computerScore) {
+                if (humanScore === 5) {
+                    let winner = document.createElement("h3")
+                    winner.innerText = ("You Won! You beat the computer " + humanScore + " to " + computerScore)
+                    display.append(winner)
+                }
+                else if (computerScore === 5) {
+                    let winner = document.createElement("h3")
+                    winner.innerText = ("You Won! You beat the computer " + humanScore + " to " + computerScore)
+                    display.append(winner)
+                }
+            }
 
             //Event listeners that let the user choose their selection by clicking the button
             rock.addEventListener("click", () => {
@@ -35,20 +49,22 @@
                 let humanSelection = rock.value
                 console.log(playRound(humanSelection, computerSelection))
                 display.innerText = ("Your Score: " + humanScore + " || " + " Computer Score: " + computerScore)
+                winnerOfGame(humanScore, computerScore)
             })
             paper.addEventListener("click", () => {
                 let computerSelection = getComputerChoice()
                 let humanSelection = paper.value
                 console.log(playRound(humanSelection, computerSelection))
                 display.innerText = ("Your Score: " + humanScore + " || " + " Computer Score: " + computerScore)
+                winnerOfGame(humanScore, computerScore)
             })
             scissors.addEventListener("click", () => {
                 let computerSelection = getComputerChoice()
                 let humanSelection = scissors.value
                 console.log(playRound(humanSelection, computerSelection))
                 display.innerText = ("Your Score: " + humanScore + " || " + " Computer Score: " + computerScore)
-            }) 
-         
+                winnerOfGame(humanScore, computerScore)
+            })
             //Create a function that lets give the computer a random choice
             function getComputerChoice () {
                 let choice = ["rock", "paper", "scissors"]
